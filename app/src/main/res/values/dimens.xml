@@ -1,0 +1,10 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="size_40">40dp</dimen>
+    <dimen name="dimen_16">16dp</dimen>
+    <dimen name="size_300">300dp</dimen>
+    <dimen name="dimen_100">100dp</dimen>
+    <dimen name="dimen_font_20">20sp</dimen>
+    <dimen name="dimen_font_18">18sp</dimen>
+
+</resources>
