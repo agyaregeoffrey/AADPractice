@@ -48,6 +48,6 @@ Name = entry.1877115667
 Last Name = entry.2006916086
 Link to project = entry.284483984
 
-![Screenshot One](https://github.com/agyaregeoffrey/AADPractice/blob/master/app/screenshots/Screenshot_20200911_104924_com.gka.aadpractice.jpg)
+![Screenshot One](../app/screenshots/Screenshot_20200911_104924_com.gka.aadpractice.jpg)
 ![Screenshot One](https://github.com/agyaregeoffrey/AADPractice/blob/master/app/screenshots/Screenshot_20200911_104932_com.gka.aadpractice.jpg)
 ![Screenshot One](https://github.com/agyaregeoffrey/AADPractice/blob/master/app/screenshots/Screenshot_20200911_104942_com.gka.aadpractice.jpg)
