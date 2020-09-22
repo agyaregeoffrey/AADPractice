@@ -33,8 +33,8 @@ class LearningLeadersFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val learnersService = ServiceBuilder.retrofitInstance(EndPoints::class.java)
-        val call: Call<List<LearningLeader>> = learnersService.getLearningLeaders()
+        val learningLeadersService = ServiceBuilder.gadsApiInstance(EndPoints::class.java)
+        val call: Call<List<LearningLeader>> = learningLeadersService.getLearningLeaders()
 
         loadProgress(true)
 

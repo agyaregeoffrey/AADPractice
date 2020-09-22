@@ -33,38 +33,41 @@ class SubmitActivity : AppCompatActivity(), AlertFragment.OnRequestConfirmationL
         }
     }
 
+    // executes when buttonYes is clicked
     override fun onConfirmed() {
         processForm()
     }
 
+    // checks form validity
     private fun confirm() {
         firstName = editTextFirstName.text.toString().trim()
         lastName = editTextLastName.text.toString().trim()
         emailAddress = editTextEmailAddress.text.toString().trim()
         gitHubLink = editTextGithubLink.text.toString().trim()
 
-        var isValid = true
+        var formInputValidity = true
 
         if (firstName.isEmpty() || lastName.isEmpty() || emailAddress.isEmpty() || gitHubLink.isEmpty()) {
             showMessage("All Fields Required")
-            isValid = false
+            formInputValidity = false
         }
 
-        if (isValid) {
+        if (formInputValidity) {
             AlertFragment.newInstance("confirmation").show(supportFragmentManager, "")
         }
     }
 
     private fun processForm() {
         showProgress(true)
-        val formService = ServiceBuilder.formInstance(EndPoints::class.java)
-        formService.submit(firstName, lastName, emailAddress, gitHubLink)
+        val formService = ServiceBuilder.googleFormApiInstance(EndPoints::class.java)
+        formService.submitFormData(firstName, lastName, emailAddress, gitHubLink)
             .enqueue(object : Callback<Void> {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                     if (response.isSuccessful) {
                         Log.i(TAG, "${response.code()}")
                         showProgress(false)
                         AlertFragment.newInstance("success").show(supportFragmentManager, "")
+                        resetForm()
                     }else {
                         Log.i(TAG, "${response.code()}")
                         showProgress(false)

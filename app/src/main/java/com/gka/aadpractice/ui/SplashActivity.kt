@@ -16,7 +16,7 @@ class SplashActivity : AppCompatActivity() {
 
         handler = Handler(mainLooper)
         handler.postDelayed({
-            startActivity(Intent(this, LeaderBoardActivity::class.java))
+            startActivity(Intent(applicationContext, LeaderBoardActivity::class.java))
             finish()
         }, 2000)
 

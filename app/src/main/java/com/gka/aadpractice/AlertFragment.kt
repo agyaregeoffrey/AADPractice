@@ -35,8 +35,8 @@ class AlertFragment : DialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            mAlertType = it.getString(ARG_PARAM_TYPE)
+        arguments?.let { bundle ->
+            mAlertType = bundle.getString(ARG_PARAM_TYPE)
         }
     }
 
@@ -44,8 +44,8 @@ class AlertFragment : DialogFragment() {
         val root = LayoutInflater.from(context)
             .inflate(R.layout.fragment_alert, null, false)
 
-        return activity?.let {
-            val builder = AlertDialog.Builder(it)
+        return activity?.let { fragmentActivity ->
+            val builder = AlertDialog.Builder(fragmentActivity)
 
             val alertType = mAlertType
 

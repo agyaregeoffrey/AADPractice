@@ -33,17 +33,17 @@ class SkillLeadersFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val skillService = ServiceBuilder.retrofitInstance(EndPoints::class.java)
-        val call: Call<List<SkillLeader>> = skillService.getSkillLeaders()
+        val skillIqService = ServiceBuilder.gadsApiInstance(EndPoints::class.java)
+        val call: Call<List<SkillLeader>> = skillIqService.getSkillLeaders()
 
-        loadProgress(true)
+        showProgress(true)
 
         call.enqueue(object : Callback<List<SkillLeader>> {
             override fun onResponse(
                 call: Call<List<SkillLeader>>,
                 response: Response<List<SkillLeader>>
             ) {
-                loadProgress(false)
+                showProgress(false)
                 rvSkillLeaders.apply {
                     layoutManager = LinearLayoutManager(context)
                     adapter = SkillLeaderRecyclerAdapter(context, response.body()!!)
@@ -59,7 +59,7 @@ class SkillLeadersFragment : Fragment() {
 
     }
 
-    private fun loadProgress(state: Boolean) {
+    private fun showProgress(state: Boolean) {
         skillGroup.isVisible = state
     }
 }
